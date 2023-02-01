@@ -27,7 +27,6 @@ public class Control {
     }
 
     public void ingresoEspectadores() {
-        Random rdm = new Random();
         int opcion;
         boolean pasó;
         for (Persona p : espectadores) {
@@ -44,8 +43,8 @@ public class Control {
                 }
             } while (continuar());
             if (pasó) {
-                System.out.println(cine.getSalas().get(opcion-1).getPelicula());
-                
+               Sala sala = cine.getSalas().get(opcion-1);
+               sala.llenarAsientos();
             }
         }
     }

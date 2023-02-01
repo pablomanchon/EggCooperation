@@ -4,6 +4,8 @@ import Entidades.Persona;
 import Enums.Tamaños;
 import Servicios.Control;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 //Nos piden hacer un programa sobre un Cine, que tiene una sala con un conjunto de asientos
 //(8 filas por 6 columnas). De Cine nos interesa conocer la película que se está reproduciendo, la
@@ -27,11 +29,43 @@ import java.util.HashMap;
 public class main {
 
     public static void main(String[] args) {
-        Control c = new Control();  
-        c.generarEspectadores();
-        c.ingresoEspectadores();
+//        Control c = new Control();
+//        c.generarEspectadores();
+//        c.ingresoEspectadores();
 
+        int[][] matriz = new int[5][5];
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                matriz[i][j] = j;
+            }
+        }
+
+        ArrayList<ArrayList<Integer>> matrizLista = new ArrayList();
+        
+
+        for (int j = 0; j < 5; j++) {
+            matrizLista.add(new ArrayList());
+        }
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                matrizLista.get(j).add(i+1);
+            }
+        }
+        
+        for (ArrayList<Integer> matrizLista1 : matrizLista) {
+            Collections.shuffle(matrizLista1);
+            for (Integer num : matrizLista1){
+                System.out.print(num);
+            }
+        }
+
+        for (ArrayList lista : matrizLista) {
+            for (Object numero : lista) {
+                System.out.print(numero);
+            }
+            System.out.println();
+        }
     }
-
 
 }
