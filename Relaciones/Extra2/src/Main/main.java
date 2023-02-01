@@ -33,39 +33,29 @@ public class main {
 //        c.generarEspectadores();
 //        c.ingresoEspectadores();
 
-        int[][] matriz = new int[5][5];
+        ArrayList<ArrayList<Integer>> matrizList = new ArrayList();
+
+        for (int i = 0; i < 5; i++) {
+            matrizList.add(new ArrayList<Integer>());
+        }
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                matriz[i][j] = j;
+                matrizList.get(j).add(i);
             }
         }
-
-        ArrayList<ArrayList<Integer>> matrizLista = new ArrayList();
-        
-
-        for (int j = 0; j < 5; j++) {
-            matrizLista.add(new ArrayList());
-        }
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                matrizLista.get(j).add(i+1);
-            }
+            
+        for(ArrayList<Integer> lista : matrizList){
+            Collections.shuffle(lista);
         }
         
-        for (ArrayList<Integer> matrizLista1 : matrizLista) {
-            Collections.shuffle(matrizLista1);
-            for (Integer num : matrizLista1){
-                System.out.print(num);
-            }
-        }
-
-        for (ArrayList lista : matrizLista) {
-            for (Object numero : lista) {
-                System.out.print(numero);
+        for (ArrayList<Integer> lista : matrizList) {
+            for (Integer num : lista) {
+                System.out.print("|" + num + "|");
             }
             System.out.println();
         }
+
     }
 
 }
