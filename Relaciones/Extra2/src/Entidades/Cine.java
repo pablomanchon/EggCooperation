@@ -11,8 +11,10 @@ public class Cine {
 
     public Cine() {
         this.precio = 1000;
+        for(int i = 0; i < 5 ; i++){
+            importarSalas();
+        }
         importarPeliculas();
-        importarSalas();
     }
 
     public ArrayList<Sala> getSalas() {
@@ -49,6 +51,11 @@ public class Cine {
         peli[3] = new Pelicula("Titanic", "4:00hs", "Maddona", 15);
         peli[4] = new Pelicula("El Señor de los Anillos", "4:00hs", "Julian Camilo Velasco", 18);
 
+        for (int i = 0; i < 5; i++) {
+            salas.get(i).
+                    setPelicula(peli[i]);
+        }
+
         peliculas.addAll(Arrays.asList(peli));
     }
 
@@ -65,7 +72,7 @@ public class Cine {
 
     public boolean controlPelicula(Persona p, int opcion) {
         Pelicula pelicula = this.peliculas.get(opcion - 1);
-
+        
         if (p.getEdad() < pelicula.getEdadMinima()) {
             System.out.println("No tiene la edad necesaria");
             return false;

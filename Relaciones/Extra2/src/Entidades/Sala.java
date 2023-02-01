@@ -8,10 +8,19 @@ public class Sala {
 
     private String[][] asientos = new String[6][8];
     private String letra;
+    private Pelicula pelicula;
     private ArrayList<Persona> espectadores = new ArrayList();
 
     public Sala() {
         crearAsientos();
+    }
+
+    public Pelicula getPelicula() {
+        return pelicula;
+    }
+
+    public void setPelicula(Pelicula pelicula) {
+        this.pelicula = pelicula;
     }
 
     public String[][] getAsientos() {
@@ -40,8 +49,10 @@ public class Sala {
 
     @Override
     public String toString() {
-        return "asientos: " + Arrays.toString(asientos) + ", letra: " + letra + ", espectadores: " + espectadores;
+        return "asientos: " + asientos + ", letra: " + letra + ", pelicula: " + pelicula + ", espectadores: " + espectadores;
     }
+
+   
 
     private void crearAsientos() {
         for (int i = 7; i >= 0; i--) {
@@ -59,11 +70,20 @@ public class Sala {
             for (int j = 0; j < 6; j++) {
                 if (this.asientos[i][j].contains("X")) {
                     j--;
-                }else{
-                    
+                } else {
+                    this.asientos[i][j] += "X";
                 }
             }
         }
+        mostrarAsientos();
     }
 
+    public void mostrarAsientos() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 6; j++) {
+                System.out.print("|" + this.asientos[i][j] + "|");
+            }
+            System.out.println();
+        }
+    }
 }

@@ -28,27 +28,34 @@ public class Control {
 
     public void ingresoEspectadores() {
         Random rdm = new Random();
-        int num;
+        int opcion;
+        boolean pasó;
         for (Persona p : espectadores) {
             System.out.println("Hola " + p.getNombre()
                     + "\n ¿Qué pelicula desea ver?"
                     + "\n Peliculas: ");
             cine.mostrarPeliculas();
             do {
-                if (cine.controlPelicula(p, p.elegirPelicula())) {
+                pasó = false;
+                opcion = p.elegirPelicula();
+                if (cine.controlPelicula(p, opcion)) {
                     System.out.println("Pase...");
+                    pasó = true;
                 }
             } while (continuar());
-
+            if (pasó) {
+                System.out.println(cine.getSalas().get(opcion-1).getPelicula());
+                
+            }
         }
     }
-    
+
     Scanner sc = new Scanner(System.in);
 
     private boolean continuar() {
         System.out.println("Desea escoger otra pelicula?(S/N)");
-        do{
-        String opcion = sc.next().toUpperCase();
+        do {
+            String opcion = sc.next().toUpperCase();
             switch (opcion) {
                 case "S" -> {
                     return true;
@@ -57,8 +64,9 @@ public class Control {
                     System.out.println("Adiós");
                     return false;
                 }
-                default -> System.out.println("Opción incorrecta");
+                default ->
+                    System.out.println("Opción incorrecta");
             }
-        }while(true);
+        } while (true);
     }
 }
