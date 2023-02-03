@@ -1,12 +1,10 @@
 package Servicios;
 
 import Entidades.Cine;
-import Entidades.Pelicula;
 import Entidades.Persona;
 import Entidades.Sala;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Control {
@@ -15,14 +13,11 @@ public class Control {
     ArrayList<Persona> espectadores = new ArrayList();
 
     public void generarEspectadores() {
-        Persona[] personas = new Persona[5];
+        Persona[] personas = new Persona[50];
 
-        personas[0] = new Persona("Andres", 14, 2000);
-        personas[1] = new Persona("Pablo", 80, 500);
-        personas[2] = new Persona("Lihuen", 25, 10000);
-        personas[3] = new Persona("Jorge", 18, 1000);
-        personas[4] = new Persona("Julian", 65, 1000);
-
+        for (int i = 0; i < 50; i++) {
+            personas[i] = new Persona(("Nombre " + i), 20, 1000);
+        }
         espectadores.addAll(Arrays.asList(personas));
     }
 
@@ -38,15 +33,22 @@ public class Control {
                 pasó = false;
                 opcion = p.elegirPelicula();
                 if (cine.controlPelicula(p, opcion)) {
-                    System.out.println("Pase...");
                     pasó = true;
                 }
             } while (continuar());
             if (pasó) {
-               Sala sala = cine.getSalas().get(opcion-1);
-               sala.llenarAsientos();
+                System.out.println("Pase...");
+                Sala sala = cine.getSalas().get(opcion - 1);
+                p.setAsiento(sala.darAsiento());
             }
         }
+        for (Persona p : espectadores) {
+            System.out.println(p);
+        }
+    }
+
+    public void mostrarAsientos() {
+        cine.getSalas().get(0).mostrarAsientos();
     }
 
     Scanner sc = new Scanner(System.in);

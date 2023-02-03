@@ -3,16 +3,19 @@ package Entidades;
 import Enums.Asientos;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
 
 public class Sala {
 
-    private String[][] asientos = new String[6][8];
+    ArrayList<ArrayList<String>> asientos = new ArrayList();
     private String letra;
     private Pelicula pelicula;
     private ArrayList<Persona> espectadores = new ArrayList();
 
     public Sala() {
         crearAsientos();
+        mostrarAsientos();
     }
 
     public Pelicula getPelicula() {
@@ -21,14 +24,6 @@ public class Sala {
 
     public void setPelicula(Pelicula pelicula) {
         this.pelicula = pelicula;
-    }
-
-    public String[][] getAsientos() {
-        return asientos;
-    }
-
-    public void setAsientos(String[][] asientos) {
-        this.asientos = asientos;
     }
 
     public String getLetra() {
@@ -47,43 +42,63 @@ public class Sala {
         this.espectadores = espectadores;
     }
 
+    public ArrayList<ArrayList<String>> getAsientos() {
+        return asientos;
+    }
+
+    public void setAsientos(ArrayList<ArrayList<String>> asientos) {
+        this.asientos = asientos;
+    }
+
     @Override
     public String toString() {
-        return "asientos: " + asientos + ", letra: " + letra + ", pelicula: " + pelicula + ", espectadores: " + espectadores;
+        return "Sala{" + "asientos=" + asientos + ", letra=" + letra + ", pelicula=" + pelicula + ", espectadores=" + espectadores + '}';
     }
-
-   
 
     private void crearAsientos() {
-        for (int i = 7; i >= 0; i--) {
+        for (int i = 0; i < 8; i++) {
+            asientos.add(new ArrayList<String>());
+        }
+        for (int i = 0; i < 8; i++) {
             for (Asientos a : Asientos.values()) {
-                String asiento = a + String.valueOf(i + 1);
-                this.asientos[a.num][i] = asiento;
-                System.out.print("|" + asientos[a.num][i] + "|");
+                String asiento = a.toString() + (i + 1);
+                asientos.get(i).add(asiento);
             }
-            System.out.println();
         }
     }
 
-    public void llenarAsientos() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 6; j++) {
-                if (this.asientos[i][j].contains("X")) {
-                    j--;
-                } else {
-                    this.asientos[i][j] += "X";
-                }
+    public String darAsiento() {
+        Random rdm = new Random();
+        int filas, columnas;
+        boolean asientoVacio;
+        int cont = 0;
+        do {
+            filas = rdm.nextInt(8);
+            columnas = rdm.nextInt(6);
+            System.out.println(filas + " " + columnas);
+            if (!asientos.get(filas).get(columnas).contains("X")) {
+                asientos.get(filas).set(columnas, asientos.get(filas).get(columnas) + "X");
+                asientoVacio = true;
+            } else {
+                asientoVacio = false;
             }
+            cont++;
+        } while (!asientoVacio && cont < 48);
+        if (!asientoVacio) {
+            System.out.println("No hay Lugar");
         }
-        mostrarAsientos();
+        return asientoVacio ? asientos.get(filas).get(columnas) : null;
     }
 
     public void mostrarAsientos() {
-        for (int i = 0; i < 8; i++) {
+
+        for (int i = 7; i >= 0; i--) {
             for (int j = 0; j < 6; j++) {
-                System.out.print("|" + this.asientos[i][j] + "|");
+                System.out.print("|" + asientos.get(i).get(j) + "|");
             }
             System.out.println();
         }
+
+        System.out.println("_____________________________");
     }
 }

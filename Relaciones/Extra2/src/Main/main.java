@@ -1,12 +1,6 @@
 package Main;
 
-import Entidades.Persona;
-import Enums.Tamaños;
 import Servicios.Control;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
 //Nos piden hacer un programa sobre un Cine, que tiene una sala con un conjunto de asientos
 //(8 filas por 6 columnas). De Cine nos interesa conocer la película que se está reproduciendo, la
 //sala con los espectadores y el precio de la entrada. Luego, de las películas nos interesa saber
@@ -29,33 +23,8 @@ import java.util.HashMap;
 public class main {
 
     public static void main(String[] args) {
-//        Control c = new Control();
-//        c.generarEspectadores();
-//        c.ingresoEspectadores();
-
-        ArrayList<ArrayList<Integer>> matrizList = new ArrayList();
-
-        for (int i = 0; i < 5; i++) {
-            matrizList.add(new ArrayList<Integer>());
-        }
-
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                matrizList.get(j).add(i);
-            }
-        }
-            
-        for(ArrayList<Integer> lista : matrizList){
-            Collections.shuffle(lista);
-        }
-        
-        for (ArrayList<Integer> lista : matrizList) {
-            for (Integer num : lista) {
-                System.out.print("|" + num + "|");
-            }
-            System.out.println();
-        }
-
+        Control c = new Control();
+        c.generarEspectadores();
+        c.ingresoEspectadores();
     }
-
 }

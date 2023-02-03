@@ -3,7 +3,7 @@ package Entidades;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Cine {
+public final class Cine {
 
     private ArrayList<Sala> salas = new ArrayList();
     private ArrayList<Pelicula> peliculas = new ArrayList<>();

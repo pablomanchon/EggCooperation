@@ -7,6 +7,7 @@ public class Persona {
     private String nombre;
     private int edad;
     private double dinero;
+    private String asiento;
 
     public Persona() {
     }
@@ -15,6 +16,14 @@ public class Persona {
         this.nombre = nombre;
         this.edad = edad;
         this.dinero = dinero;
+    }
+
+    public String getAsiento() {
+        return asiento;
+    }
+
+    public void setAsiento(String asiento) {
+        this.asiento = asiento;
     }
 
     public String getNombre() {
@@ -43,8 +52,10 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "nombre: " + nombre + ", edad: " + edad + ", dinero: " + dinero;
+        return "Persona{" + "nombre=" + nombre + ", edad=" + edad + ", dinero=" + dinero + ", asiento=" + asiento + '}';
     }
+
+   
 
     public int elegirPelicula() {
         Scanner sc = new Scanner(System.in);
