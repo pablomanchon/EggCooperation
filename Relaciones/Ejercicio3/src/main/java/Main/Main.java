@@ -7,5 +7,6 @@ public class Main {
         Control c = new Control();
         c.llenarMazo();
         c.Menu();
+
     }
 }

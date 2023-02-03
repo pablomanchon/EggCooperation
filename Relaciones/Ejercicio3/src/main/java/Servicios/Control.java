@@ -10,8 +10,8 @@ public class Control {
 
     public void llenarMazo() {
         LinkedList<Carta> cartas = new LinkedList<Carta>();
-        for (int i = 1; i < 13; i++) {
             Carta c = new Carta();
+        for (int i = 1; i < 13; i++) {
             if (i != 8 && i != 9) {
                 crearCartas(cartas, i, c);
             }
