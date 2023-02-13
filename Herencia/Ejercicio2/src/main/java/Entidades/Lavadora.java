@@ -22,10 +22,20 @@ public class Lavadora extends Electrodomestico {
         this.carga = carga;
     }
 
+    @Override
+    public String toString() {
+        return "Lavadora{" +
+                "carga=" + carga +
+                ", color='" + color + '\'' +
+                ", precio=" + precio +
+                ", peso=" + peso +
+                ", consumo=" + consumo +
+                '}';
+    }
+
     public void crearLavadora() {
         Scanner sc = new Scanner(System.in);
         super.crearElectrodomestico();
-
         System.out.print("Carga: ");
         this.carga = sc.nextDouble();
     }

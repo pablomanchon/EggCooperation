@@ -32,6 +32,18 @@ public class Televisor extends Electrodomestico {
         this.sintonizadorTDT = sintonizadorTDT;
     }
 
+    @Override
+    public String toString() {
+        return "Televisor{" +
+                "resolucion=" + resolucion +
+                ", sintonizadorTDT=" + sintonizadorTDT +
+                ", color='" + color + '\'' +
+                ", precio=" + precio +
+                ", peso=" + peso +
+                ", consumo=" + consumo +
+                '}';
+    }
+
     public void crearTelevisor() {
         Scanner sc = new Scanner(System.in);
         super.crearElectrodomestico();
