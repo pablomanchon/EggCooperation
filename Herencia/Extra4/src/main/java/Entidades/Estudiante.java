@@ -1,8 +1,10 @@
 package Entidades;
 
+import Enums.Departamento;
+
 import java.util.ArrayList;
 
-public class Estudiante extends Persona{
+public class Estudiante extends Persona {
     private ArrayList<String> curso = new ArrayList();
 
     public Estudiante() {
@@ -17,14 +19,39 @@ public class Estudiante extends Persona{
         this.curso = curso;
     }
 
-    private void crearEstudiante(){
+    private void crearEstudiante() {
         super.crearPersona();
         System.out.print("Curso en el que está matriculado: ");
-        this.curso.add(sc.next());
+        escogerCurso();
     }
-    public void reasignarCurso(){
-        System.out.println("__________Reasignacion curso__________");
-        System.out.println("Seleccion nuevo curso: ");
-        this.curso.add(sc.next());
+
+    public void escogerCurso() {
+        mostrarCursos();
+        Boolean opcionCorrecta = false;
+        do {
+            String opcion = sc.next();
+            for (Departamento aux : Departamento.values()) {
+                if (this.curso.contains(aux.n)) {
+                    System.out.println("Ya se encuentra en el curso de " + aux.n);
+                    opcionCorrecta = true;
+                    break;
+                }
+                if (opcion.equalsIgnoreCase(aux.n)) {
+                    this.curso.add(aux.n);
+                    System.out.println("¡Curso añadido con exito!");
+                    opcionCorrecta = true;
+                    break;
+                }
+            }
+            if (!opcionCorrecta)
+                System.out.println("Opcion inorrecta, Vuelva a intentarlo");
+
+        } while (this.curso.isEmpty());
     }
+
+    private static void mostrarCursos() {
+        for (Departamento aux : Departamento.values())
+            System.out.print("|" + aux.n + "|");
+    }
+
 }
