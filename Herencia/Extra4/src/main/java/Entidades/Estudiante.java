@@ -19,8 +19,19 @@ public class Estudiante extends Persona {
         this.curso = curso;
     }
 
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "curso=" + curso +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", estadoCivil='" + estadoCivil + '\'' +
+                ", numIdentificacion=" + numIdentificacion +
+                ", sc=" + sc +
+                '}';
+    }
+
     private void crearEstudiante() {
-        super.crearPersona();
         System.out.print("Curso en el que está matriculado: ");
         escogerCurso();
     }
@@ -46,7 +57,7 @@ public class Estudiante extends Persona {
             if (!opcionCorrecta)
                 System.out.println("Opcion inorrecta, Vuelva a intentarlo");
 
-        } while (this.curso.isEmpty());
+        } while (!opcionCorrecta);
     }
 
     private static void mostrarCursos() {

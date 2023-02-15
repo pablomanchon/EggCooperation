@@ -23,9 +23,20 @@ public class Empleado extends Persona {
         this.numDespacho = numDespacho;
     }
 
-    private void crearEmpleado() {
-        super.crearPersona();
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "anioIncorporacion=" + anioIncorporacion +
+                ", numDespacho=" + numDespacho +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", estadoCivil='" + estadoCivil + '\'' +
+                ", numIdentificacion=" + numIdentificacion +
+                ", sc=" + sc +
+                '}';
+    }
 
+    private void crearEmpleado() {
         System.out.print("Año de incorporacion: ");
         sc.nextInt();
 

@@ -7,7 +7,9 @@ public class Persona {
     protected Integer numIdentificacion;
 
     public Persona() {
+        crearPersona();
     }
+
     public Persona(String nombre, String apellidos, String estadoCivil, Integer numIdentificacion) {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -49,20 +51,23 @@ public class Persona {
     }
 
     protected Scanner sc = new Scanner(System.in).useDelimiter("\n");
-    protected void crearPersona(){
+
+    protected void crearPersona() {
         System.out.print("Nombre: ");
-        this.nombre=sc.next();
+        this.nombre = sc.next();
 
         System.out.print("Apellidos: ");
-        this.apellidos=sc.next();
+        this.apellidos = sc.next();
 
         System.out.print("D.N.I: ");
-        this.numIdentificacion=sc.nextInt();
+        this.numIdentificacion = sc.nextInt();
+
 
         System.out.print("Estado Civil: ");
-        this.estadoCivil=sc.next();
+        this.estadoCivil = sc.next();
     }
-    protected void cambioEstadoCivil(){
+
+    public void cambioEstadoCivil() {
         System.out.println("Ingrese su nuevo estado civil");
         this.estadoCivil = sc.next();
     }
