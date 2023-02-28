@@ -1,6 +1,11 @@
 package Main;
 
 import Logica.Control;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /*Sistema Gestión Facultad. Se pretende realizar una aplicación para una facultad que gestione
         la información sobre las personas vinculadas con la misma y que se pueden clasificar en tres
         tipos: estudiantes, profesores y personal de servicio. A continuación, se detalla qué tipo de
