@@ -1,125 +1,292 @@
-select * from fabricante;
-select * from producto;
+SELECT 
+    *
+FROM
+    fabricante;
+SELECT 
+    *
+FROM
+    producto;
 
-select nombre from producto;
+SELECT 
+    nombre
+FROM
+    producto;
 
-select nombre, precio from producto;
+SELECT 
+    nombre, precio
+FROM
+    producto;
 
 show columns from producto;
 
-select nombre, round(precio) from producto;
+SELECT 
+    nombre, ROUND(precio)
+FROM
+    producto;
 
-select f.nombre from fabricante f , producto p
-where f.codigo = codigo_fabricante;
+SELECT 
+    f.nombre
+FROM
+    fabricante f,
+    producto p
+WHERE
+    f.codigo = codigo_fabricante;
 
-select distinct f.nombre from fabricante f , producto p
-where f.codigo = codigo_fabricante;
+SELECT DISTINCT
+    f.nombre
+FROM
+    fabricante f,
+    producto p
+WHERE
+    f.codigo = codigo_fabricante;
 
-select distinct f.nombre from fabricante f , producto p
-where f.codigo = codigo_fabricante
-order by f.nombre;
+SELECT DISTINCT
+    f.nombre
+FROM
+    fabricante f,
+    producto p
+WHERE
+    f.codigo = codigo_fabricante
+ORDER BY f.nombre;
 
-select * from producto
-order by nombre, precio desc;
+SELECT 
+    *
+FROM
+    producto
+ORDER BY nombre , precio DESC;
 
-select  * from fabricante
-limit 5;
+SELECT 
+    *
+FROM
+    fabricante
+LIMIT 5;
 
-select nombre, precio from producto
-order by precio
-limit 1;
+SELECT 
+    nombre, precio
+FROM
+    producto
+ORDER BY precio
+LIMIT 1;
 
-select nombre, precio from producto
-order by precio desc
-limit 1;
+SELECT 
+    nombre, precio
+FROM
+    producto
+ORDER BY precio DESC
+LIMIT 1;
 
-select nombre from producto
-where precio <= 120;
+SELECT 
+    nombre
+FROM
+    producto
+WHERE
+    precio <= 120;
 
-select * from producto
-where precio between 70 and 200;
+SELECT 
+    *
+FROM
+    producto
+WHERE
+    precio BETWEEN 70 AND 200;
 
-select * from producto 
-where codigo_fabricante in (1,3,5);
+SELECT 
+    *
+FROM
+    producto
+WHERE
+    codigo_fabricante IN (1 , 3, 5);
 
-select nombre from producto
-where nombre like "%Portatil%";
+SELECT 
+    nombre
+FROM
+    producto
+WHERE
+    nombre LIKE '%Portatil%';
 
-select p.codigo, p.nombre, f.codigo, f.nombre
-from fabricante f, producto p
-where codigo_fabricante = f.codigo;
+SELECT 
+    p.codigo, p.nombre, f.codigo, f.nombre
+FROM
+    fabricante f,
+    producto p
+WHERE
+    codigo_fabricante = f.codigo;
 
-select p.nombre, precio, f.nombre as nombre_fabricante
-from fabricante f, producto p
-where codigo_fabricante = f.codigo
-order by f.nombre;
+SELECT 
+    p.nombre, precio, f.nombre AS nombre_fabricante
+FROM
+    fabricante f,
+    producto p
+WHERE
+    codigo_fabricante = f.codigo
+ORDER BY f.nombre;
 
-select p.nombre, precio, f.nombre
-from fabricante f, producto p
-where codigo_fabricante = f.codigo
-and precio = (select min(precio) from producto);
+SELECT 
+    p.nombre, precio, f.nombre
+FROM
+    fabricante f,
+    producto p
+WHERE
+    codigo_fabricante = f.codigo
+        AND precio = (SELECT 
+            MIN(precio)
+        FROM
+            producto);
 
-select p.nombre, precio
-from fabricante f, producto p
-where codigo_fabricante = f.codigo
-and f.nombre = "Lenovo";
+SELECT 
+    p.nombre, precio
+FROM
+    fabricante f,
+    producto p
+WHERE
+    codigo_fabricante = f.codigo
+        AND f.nombre = 'Lenovo';
 
-select p.nombre, precio
-from fabricante f, producto p
-where codigo_fabricante = f.codigo
-and f.nombre = "Crucial"
-and precio > 200;
+SELECT 
+    p.nombre, precio
+FROM
+    fabricante f,
+    producto p
+WHERE
+    codigo_fabricante = f.codigo
+        AND f.nombre = 'Crucial'
+        AND precio > 200;
 
-select p.nombre, precio
-from fabricante f, producto p
-where codigo_fabricante = f.codigo
-and f.nombre in("Asus","Hewlett-Packard");
+SELECT 
+    p.nombre, precio
+FROM
+    fabricante f,
+    producto p
+WHERE
+    codigo_fabricante = f.codigo
+        AND f.nombre IN ('Asus' , 'Hewlett-Packard');
 
-select p.nombre, precio, f.nombre
-from fabricante f, producto p
-where codigo_fabricante = f.codigo
-and precio >= 180
-order by precio desc, p.nombre;
+SELECT 
+    p.nombre, precio, f.nombre
+FROM
+    fabricante f,
+    producto p
+WHERE
+    codigo_fabricante = f.codigo
+        AND precio >= 180
+ORDER BY precio DESC , p.nombre;
 
-select * from fabricante f
-left join producto p
-on f.codigo = codigo_fabricante;
+SELECT 
+    *
+FROM
+    fabricante f
+        LEFT JOIN
+    producto p ON f.codigo = codigo_fabricante;
 
-select f.* from fabricante f
-left join producto p
-on f.codigo = codigo_fabricante
-where p.codigo is null;
+SELECT 
+    f.*
+FROM
+    fabricante f
+        LEFT JOIN
+    producto p ON f.codigo = codigo_fabricante
+WHERE
+    p.codigo IS NULL;
 
-select * from producto p
-where codigo_fabricante = (
-select codigo from fabricante
-where nombre = "Lenovo");
+SELECT 
+    *
+FROM
+    producto p
+WHERE
+    codigo_fabricante = (SELECT 
+            codigo
+        FROM
+            fabricante
+        WHERE
+            nombre = 'Lenovo');
 
-select * from producto
-where precio = (select max(precio) from producto
-where codigo_fabricante = (
-select codigo from fabricante where nombre = "Lenovo"));
+SELECT 
+    *
+FROM
+    producto
+WHERE
+    precio = (SELECT 
+            MAX(precio)
+        FROM
+            producto
+        WHERE
+            codigo_fabricante = (SELECT 
+                    codigo
+                FROM
+                    fabricante
+                WHERE
+                    nombre = 'Lenovo'));
 
-select max(precio) from producto
-where codigo_fabricante = (
-select codigo from fabricante where nombre = "Lenovo");
+SELECT 
+    MAX(precio)
+FROM
+    producto
+WHERE
+    codigo_fabricante = (SELECT 
+            codigo
+        FROM
+            fabricante
+        WHERE
+            nombre = 'Lenovo');
 
-select precio from producto
-where codigo_fabricante = (
-select codigo from fabricante where nombre = "Asus")
-and precio > (select avg(precio) from producto
-where codigo_fabricante = (
-select codigo from fabricante where nombre = "Asus"));
+SELECT 
+    precio
+FROM
+    producto
+WHERE
+    codigo_fabricante = (SELECT 
+            codigo
+        FROM
+            fabricante
+        WHERE
+            nombre = 'Asus')
+        AND precio > (SELECT 
+            AVG(precio)
+        FROM
+            producto
+        WHERE
+            codigo_fabricante = (SELECT 
+                    codigo
+                FROM
+                    fabricante
+                WHERE
+                    nombre = 'Asus'));
 
-select nombre from fabricante
-where codigo in (select codigo_fabricante from producto);
+SELECT 
+    nombre
+FROM
+    fabricante
+WHERE
+    codigo IN (SELECT 
+            codigo_fabricante
+        FROM
+            producto);
 
-select nombre from fabricante
-where codigo not in (select codigo_fabricante from producto);
+SELECT 
+    nombre
+FROM
+    fabricante
+WHERE
+    codigo NOT IN (SELECT 
+            codigo_fabricante
+        FROM
+            producto);
 
-select f.nombre, count(*) from producto p 
-inner join fabricante f on p.codigo_fabricante = f.codigo
-where f.nombre <> "Lenovo"
-group by codigo_fabricante
-having (count(codigo_fabricante) = (select count(codigo_fabricante) from producto p 
-where codigo_fabricante = (select codigo from fabricante where nombre = "Lenovo")));
+SELECT 
+    f.nombre, COUNT(*)
+FROM
+    producto p
+        INNER JOIN
+    fabricante f ON p.codigo_fabricante = f.codigo
+WHERE
+    f.nombre <> 'Lenovo'
+GROUP BY codigo_fabricante
+HAVING (COUNT(codigo_fabricante) = (SELECT 
+        COUNT(codigo_fabricante)
+    FROM
+        producto p
+    WHERE
+        codigo_fabricante = (SELECT 
+                codigo
+            FROM
+                fabricante
+            WHERE
+                nombre = 'Lenovo')));
