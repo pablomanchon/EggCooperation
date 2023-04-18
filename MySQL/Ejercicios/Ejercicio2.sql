@@ -290,3 +290,4 @@ HAVING (COUNT(codigo_fabricante) = (SELECT
                 fabricante
             WHERE
                 nombre = 'Lenovo')));
+
