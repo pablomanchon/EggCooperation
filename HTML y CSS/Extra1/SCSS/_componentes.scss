@@ -1,0 +1,47 @@
+@use "mixins" as m;
+.lista1 {
+  @include m.lista(red, green);
+  .li1 {
+    @include m.lis(red);
+  }
+  .li2 {
+    @include m.lis(green);
+  }
+  .li3 {
+    @include m.lis(blue);
+  }
+  .li4 {
+    @include m.lis(black);
+  }
+  .li5 {
+    @include m.lis(cyan);
+  }
+}
+.lista2 {
+  @include m.lista(yellow, orange);
+  .li1 {
+    a {
+      @include m.lis(blue);
+    }
+  }
+  .li2 {
+    a {
+      @include m.lis(violet);
+    }
+  }
+  .li3 {
+    a {
+      @include m.lis(red);
+    }
+  }
+  .li4 {
+    a {
+      @include m.lis(green);
+    }
+  }
+  .li5 {
+    a {
+      @include m.lis(rgb(255, 70, 101));
+    }
+  }
+}

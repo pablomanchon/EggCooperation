@@ -1,1 +1,168 @@
-/*# sourceMappingURL=styles.css.map */
+.caja {
+  font-size: 2rem;
+  cursor: pointer;
+  text-align: right;
+  background-image: url("https://s1.eestatic.com/2021/04/20/como/575203602_178715866_1024x576.jpg");
+  background-size: 100%;
+  background-attachment: local;
+  background-repeat: no-repeat;
+  width: 93%;
+  border-radius: 15px;
+  border-style: none;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 0 15px rgb(165, 91, 42);
+  margin-bottom: 1rem;
+  outline: none;
+  transition: 0.4s;
+  color: rgb(93, 45, 0);
+}
+.caja:hover {
+  box-shadow: 0 0 15px 8px rgb(165, 91, 42);
+}
+.caja:focus {
+  box-shadow: 0 0 15px 6px rgb(165, 91, 42);
+}
+.caja:active {
+  box-shadow: 0 0 15px 4px rgb(173, 107, 62);
+}
+
+.numeros {
+  display: grid;
+  grid-template-columns: 7.5rem 7.5rem 7.5rem;
+}
+.numeros button {
+  cursor: pointer;
+  background-color: rgb(255, 220, 175);
+  border: 1px solid rgb(167, 126, 52);
+  border-radius: 15px;
+  margin: 0.1rem;
+  font-size: 2rem;
+  padding: 0.5rem;
+  transition: 0.4s;
+  color: rgb(84, 34, 3);
+}
+.numeros button:hover {
+  background-color: rgb(249, 220, 185);
+  box-shadow: 0 0 10px rgb(165, 89, 42);
+  border-radius: 50%;
+}
+.numeros button:active {
+  background-color: rgb(252, 233, 211);
+}
+.numeros .btn-num {
+  cursor: pointer;
+  background-color: burlywood;
+  border: 1px solid rgb(167, 126, 52);
+  border-radius: 15px;
+  margin: 0.1rem;
+  font-size: 2rem;
+  padding: 0.5rem;
+  transition: 0.4s;
+  color: rgb(84, 34, 3);
+}
+.numeros .btn-num:hover {
+  background-color: rgb(249, 220, 185);
+  box-shadow: 0 0 10px rgb(165, 89, 42);
+  border-radius: 50%;
+}
+.numeros .btn-num:active {
+  background-color: rgb(252, 233, 211);
+}
+
+.operadores {
+  display: grid;
+  grid-template-columns: 7.5rem 7.5rem 7.5rem;
+}
+.operadores button {
+  cursor: pointer;
+  background-color: rgb(255, 220, 175);
+  border: 1px solid rgb(167, 126, 52);
+  border-radius: 15px;
+  margin: 0.1rem;
+  font-size: 2rem;
+  padding: 0.5rem;
+  transition: 0.4s;
+  color: rgb(84, 34, 3);
+}
+.operadores button:hover {
+  background-color: rgb(249, 220, 185);
+  box-shadow: 0 0 10px rgb(165, 89, 42);
+  border-radius: 50%;
+}
+.operadores button:active {
+  background-color: rgb(252, 233, 211);
+}
+
+#btnIgual {
+  grid-column: span 2;
+}
+#btnIgual:hover {
+  box-shadow: 0 0 15px rgb(129, 129, 192);
+}
+
+#btnC,
+#btnCe {
+  color: rgb(172, 99, 43);
+}
+#btnC:hover,
+#btnCe:hover {
+  box-shadow: 0 0 15px rgb(255, 255, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Caveat", cursive;
+}
+
+body {
+  background-image: url("/media/mesa.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  background-image: url("/media/calc-header.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0.5rem 0;
+  font-size: 2rem;
+  width: 100%;
+}
+header h1 {
+  text-align: center;
+  color: rgb(104, 85, 62);
+}
+
+article {
+  display: flex;
+  justify-content: center;
+}
+article .calculadora {
+  box-shadow: 0 0 15px 5px #555;
+  border-radius: 15px;
+  background-image: url("/media/madera.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 1rem;
+}
+article .botones {
+  display: flex;
+  gap: 0.5rem;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,11 @@
+.btn {
+  background-color: blue;
+  color: white;
+  border-radius: 15px;
+  &:hover {
+    background-color: rgb(64, 64, 250);
+  }
+  &:click {
+    background-color: blue;
+  }
+}

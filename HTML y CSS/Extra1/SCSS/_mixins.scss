@@ -1,0 +1,30 @@
+@mixin lis($color: black) {
+  color: $color;
+  transition: 0.4s;
+  cursor: pointer;
+  &:hover {
+    font-size: 1.7rem;
+    border-radius: 15px;
+    background-color: #f8e789;
+  }
+  &:active {
+    font-size: 1.8rem;
+  }
+}
+@mixin lista($shadow, $shadowHover) {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  width: 10rem;
+  background-color: antiquewhite;
+  border-radius: 100%;
+  padding: 3rem;
+  transition: 0.4s;
+  box-shadow: 0 0 15px $shadow;
+  text-align: center;
+  list-style: none;
+  &:hover {
+    box-shadow: 0 0 20px 15px $shadowHover;
+    border-radius: 40%;
+    padding: 4rem;
+  }
+}

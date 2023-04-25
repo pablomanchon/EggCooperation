@@ -1,0 +1,21 @@
+@use "mixins" as m;
+h1 {
+  @include m.h1yh2();
+}
+h2 {
+  @include m.h1yh2(red, 50px);
+  font-family: "Courier New", Courier, monospace;
+}
+div {
+  background-color: grey;
+  h1 {
+    background-color: red;
+    p {
+      background-color: black;
+      color: white;
+      a {
+        color: red;
+      }
+    }
+  }
+}

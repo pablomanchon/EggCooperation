@@ -1,0 +1,13 @@
+@mixin h1yh2($color: green, $tamanioletra: 25px) {
+  color: $color;
+  font-size: $tamanioletra;
+  transition: 0.4s;
+  &:hover {
+    padding: 5rem;
+    color: black;
+  }
+  &:active {
+    padding: 5rem;
+    color: blueviolet;
+  }
+}

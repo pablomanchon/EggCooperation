@@ -1,0 +1,58 @@
+@use "mixins" as m;
+.caja {
+  font-size: 2rem;
+  cursor: pointer;
+  text-align: right;
+  background-image: url("https://s1.eestatic.com/2021/04/20/como/575203602_178715866_1024x576.jpg");
+  background-size: 100%;
+  background-attachment: local;
+  background-repeat: no-repeat;
+  width: 93%;
+  border-radius: 15px;
+  border-style: none;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 0 15px rgb(165, 91, 42);
+  margin-bottom: 1rem;
+  outline: none;
+  transition: 0.4s;
+  color: rgb(93, 45, 0);
+  &:hover {
+    box-shadow: 0 0 15px 8px rgb(165, 91, 42);
+  }
+  &:focus {
+    box-shadow: 0 0 15px 6px rgb(165, 91, 42);
+  }
+  &:active {
+    box-shadow: 0 0 15px 4px rgb(173, 107, 62);
+  }
+}
+.numeros {
+  display: grid;
+  grid-template-columns: 7.5rem 7.5rem 7.5rem;
+  button {
+    @include m.btn;
+  }
+  .btn-num {
+    @include m.btn(0.5rem, burlywood);
+  }
+}
+.operadores {
+  display: grid;
+  grid-template-columns: 7.5rem 7.5rem 7.5rem;
+  button {
+    @include m.btn;
+  }
+}
+#btnIgual {
+  grid-column: span 2;
+  &:hover {
+    box-shadow: 0 0 15px rgb(129, 129, 192);
+  }
+}
+#btnC,
+#btnCe {
+  color: rgb(172, 99, 43);
+  &:hover {
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+  }
+}

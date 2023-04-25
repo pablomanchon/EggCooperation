@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  gap: 2rem;
+  margin-left: 1rem;
+  align-items: flex-start;
+  position: fixed;
+}
+
+p {
+  margin-top: 18rem;
+}
+
+.lista1 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  width: 10rem;
+  background-color: antiquewhite;
+  border-radius: 100%;
+  padding: 3rem;
+  transition: 0.4s;
+  box-shadow: 0 0 15px red;
+  text-align: center;
+  list-style: none;
+}
+.lista1:hover {
+  box-shadow: 0 0 20px 15px green;
+  border-radius: 40%;
+  padding: 4rem;
+}
+.lista1 .li1 {
+  color: red;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.lista1 .li1:hover {
+  font-size: 1.7rem;
+  border-radius: 15px;
+  background-color: #f8e789;
+}
+.lista1 .li1:active {
+  font-size: 1.8rem;
+}
+.lista1 .li2 {
+  color: green;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.lista1 .li2:hover {
+  font-size: 1.7rem;
+  border-radius: 15px;
+  background-color: #f8e789;
+}
+.lista1 .li2:active {
+  font-size: 1.8rem;
+}
+.lista1 .li3 {
+  color: blue;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.lista1 .li3:hover {
+  font-size: 1.7rem;
+  border-radius: 15px;
+  background-color: #f8e789;
+}
+.lista1 .li3:active {
+  font-size: 1.8rem;
+}
+.lista1 .li4 {
+  color: black;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.lista1 .li4:hover {
+  font-size: 1.7rem;
+  border-radius: 15px;
+  background-color: #f8e789;
+}
+.lista1 .li4:active {
+  font-size: 1.8rem;
+}
+.lista1 .li5 {
+  color: cyan;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.lista1 .li5:hover {
+  font-size: 1.7rem;
+  border-radius: 15px;
+  background-color: #f8e789;
+}
+.lista1 .li5:active {
+  font-size: 1.8rem;
+}
+
+.lista2 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  width: 10rem;
+  background-color: antiquewhite;
+  border-radius: 100%;
+  padding: 3rem;
+  transition: 0.4s;
+  box-shadow: 0 0 15px yellow;
+  text-align: center;
+  list-style: none;
+}
+.lista2:hover {
+  box-shadow: 0 0 20px 15px orange;
+  border-radius: 40%;
+  padding: 4rem;
+}
+.lista2 .li1 a {
+  color: blue;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.lista2 .li1 a:hover {
+  font-size: 1.7rem;
+  border-radius: 15px;
+  background-color: #f8e789;
+}
+.lista2 .li1 a:active {
+  font-size: 1.8rem;
+}
+.lista2 .li2 a {
+  color: violet;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.lista2 .li2 a:hover {
+  font-size: 1.7rem;
+  border-radius: 15px;
+  background-color: #f8e789;
+}
+.lista2 .li2 a:active {
+  font-size: 1.8rem;
+}
+.lista2 .li3 a {
+  color: red;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.lista2 .li3 a:hover {
+  font-size: 1.7rem;
+  border-radius: 15px;
+  background-color: #f8e789;
+}
+.lista2 .li3 a:active {
+  font-size: 1.8rem;
+}
+.lista2 .li4 a {
+  color: green;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.lista2 .li4 a:hover {
+  font-size: 1.7rem;
+  border-radius: 15px;
+  background-color: #f8e789;
+}
+.lista2 .li4 a:active {
+  font-size: 1.8rem;
+}
+.lista2 .li5 a {
+  color: rgb(255, 70, 101);
+  transition: 0.4s;
+  cursor: pointer;
+}
+.lista2 .li5 a:hover {
+  font-size: 1.7rem;
+  border-radius: 15px;
+  background-color: #f8e789;
+}
+.lista2 .li5 a:active {
+  font-size: 1.8rem;
+}
+
+/*# sourceMappingURL=style.css.map */

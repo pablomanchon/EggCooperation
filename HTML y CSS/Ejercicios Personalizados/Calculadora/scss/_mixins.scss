@@ -1,0 +1,28 @@
+@mixin btn(
+  $padding: 0.5rem,
+  $color: rgb(255, 220, 175),
+  $shadowColor: rgb(165, 89, 42)
+) {
+  cursor: pointer;
+  background-color: $color;
+  border: 1px solid rgb(167, 126, 52);
+  border-radius: 15px;
+  margin: 0.1rem;
+  font-size: 2rem;
+  padding: $padding;
+  transition: 0.4s;
+  color: rgb(84, 34, 3);
+  &:hover {
+    background-color: rgb(249, 220, 185);
+    box-shadow: 0 0 10px $shadowColor;
+    border-radius: 50%;
+  }
+  &:active {
+    background-color: rgb(252, 233, 211);
+  }
+}
+@mixin backImg($url, $tamanio: 100% 100%) {
+  background-image: $url;
+  background-size: $tamanio;
+  background-repeat: no-repeat;
+}
