@@ -1,0 +1,22 @@
+@mixin modificarNumericos {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+@mixin tarjetamodel($color, $boxColor) {
+  background-color: $boxColor;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px 5px $color;
+  transition: 0.4s;
+  &:hover {
+    box-shadow: 0 0 18px 12px $color;
+  }
+}
