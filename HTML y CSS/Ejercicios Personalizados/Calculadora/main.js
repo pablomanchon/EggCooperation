@@ -2,7 +2,8 @@ let numeros = document.querySelectorAll(".btn-num");
 let operadores = document.querySelectorAll(".operador");
 let caja = document.getElementById("resultado");
 let btnIgual = document.getElementById("btnIgual");
-let operadorAct = false;
+let operadorAct = true;
+
 btnIgual.addEventListener("click", () => {
   let contador = contarParentesis();
   console.log(contador);
@@ -18,12 +19,16 @@ btnIgual.addEventListener("click", () => {
 
 operadores.forEach((op) => {
   op.addEventListener("click", () => {
-    caja.value += op.innerHTML;
+    if (!operadorAct) {
+      caja.value += op.innerHTML;
+      operadorAct = true;
+    }
   });
 });
 numeros.forEach((num) => {
   num.addEventListener("click", () => {
     caja.value += num.innerHTML;
+    operadorAct = false;
   });
 });
 

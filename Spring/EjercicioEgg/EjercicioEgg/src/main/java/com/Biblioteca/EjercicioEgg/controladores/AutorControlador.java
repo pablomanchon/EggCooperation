@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.*;
+
 @Controller
 @RequestMapping("/autor")
 public class AutorControlador {
@@ -31,8 +33,10 @@ public class AutorControlador {
         }
         return "autor_form.html";
     }
-    @PostMapping("/lista")
+    @GetMapping("/lista")
     public String listaAutor(ModelMap modelo){
+        List<Autor> autores = autorServ.listarAutores();
+        modelo.addAttribute("autores",autores);
         return "autor_lista.html";
     }
 
