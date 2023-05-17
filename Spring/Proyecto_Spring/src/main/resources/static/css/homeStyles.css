@@ -1,0 +1,25 @@
+.titulo-noticias{
+    font-size: 60px;
+}
+.noti-cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+  max-width: 80%;
+  padding-top: 20px;
+}
+
+.noti-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: auto;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px rgb(155, 155, 155);
+  margin: 20px;
+  margin-bottom: 20px;
+  padding: 30px;
+}
