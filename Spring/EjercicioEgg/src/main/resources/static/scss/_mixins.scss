@@ -20,3 +20,20 @@
     box-shadow: 0 0 18px 12px $color;
   }
 }
+@mixin btn(
+  $backColor: rgb(101, 65, 23),
+  $shadowBox: rgb(95, 236, 95),
+  $shadowHover: rgb(203, 134, 56),
+  $texto: rgb(203, 134, 56),
+  $textoHover: rgb(63, 189, 63)
+) {
+  background-color: $backColor;
+  border: none;
+  box-shadow: 0 0 8px $shadowBox;
+  transition: 0.4s;
+  color: $texto;
+  &:hover {
+    box-shadow: 0 0 15px $shadowHover;
+    color: $textoHover;
+  }
+}

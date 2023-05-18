@@ -18,6 +18,14 @@
     <body>
         <main>
             <header th:include="componentes/header.html :: header"></header>
+            <div class="tarjetaRed" th:if="${error} != null">
+                <h3>Error!</h3>
+                <p th:text="${error}"></p>
+            </div>
+            <div class="tarjetaGreen" th:if="${exito} != null">
+                <h3>Exito!</h3>
+                <p th:text="${exito}"></p>
+            </div>
             <section>
 
             </section>

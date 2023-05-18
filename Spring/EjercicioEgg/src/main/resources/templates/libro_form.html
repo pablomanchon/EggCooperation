@@ -19,9 +19,17 @@
         <main>
             <header th:include="componentes/header.html :: header"></header>
             <div class="container">
-                <form action="/editorial/registro" method="POST">
+                <div class="tarjetaRed" th:if="${error} != null">
+                    <h3>Error!</h3>
+                    <p th:text="${error}"></p>
+                </div>
+                <div class="tarjetaGreen" th:if="${exito} != null">
+                    <h3>Exito!</h3>
+                    <p th:text="${exito}"></p>
+                </div>
+                <form th:action="@{/libro/registro}" method="POST">
                     <div class="cabecera">
-                        <h1>Creación de editorial</h1>
+                        <h1>Creación de libro</h1>
                         <hr>
                     </div>
                     <label for="isbn" class="form-label">ISBN</label>
@@ -39,12 +47,6 @@
                     <input class="form-control" name="idEditorial" type="text" id="idEditorial"
                         placeholder="ID Editorial">
                     <button class="btn btn-primary" type="submit">Guardar</button>
-                    <div class="card text-white bg-danger">
-                        <div class="card-body">
-                            <h5 class="card-title">Error</h5>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
                 </form>
             </div>
             <footer>

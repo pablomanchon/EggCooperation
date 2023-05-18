@@ -8,6 +8,7 @@
 }
 $colorPrincipal: rgb(138, 86, 28);
 $colorSecundario: rgb(203, 134, 56);
+$colorLetra: rgb(73, 45, 14);
 .carta {
   background-color: $colorPrincipal;
   width: 20rem;
@@ -21,21 +22,31 @@ $colorSecundario: rgb(203, 134, 56);
   gap: 1rem;
   justify-content: space-around;
 }
+$verde1: rgb(63, 189, 63);
+$verde2: rgb(95, 236, 95);
 header {
-  background-color: $colorPrincipal;
-  .boton {
-    background-color: rgb(101, 65, 23);
-    border: none;
-    box-shadow: 0 0 8px $colorSecundario;
-    border-radius: 50%;
-    margin-left: 1rem;
-    padding: 0.5rem;
+  .logo i {
+    color: $verde1;
+    box-shadow: 0 0 8px $verde2;
     transition: 0.4s;
-    color: $colorSecundario;
+    border: none;
+    border-radius: 50%;
+    padding: 1px 4px;
+    border: solid 1px $colorPrincipal;
     &:hover {
-      box-shadow: 0 0 15px $colorSecundario;
+      box-shadow: 0px 16px 8px $verde2;
+      border: solid 1px $verde2;
     }
   }
+  font-weight: 700;
+  color: $colorLetra;
+  background-color: $colorPrincipal;
+  .boton {
+    @include m.btn;
+    border-radius: 50%;
+    margin-left: 1rem;
+  }
+
   .inputP {
     background-color: $colorSecundario;
     box-shadow: 0 0 8px rgb(203, 134, 56);
@@ -44,12 +55,38 @@ header {
     transition: 0.4s;
     border-radius: 1rem;
     padding: 0.5rem;
-    color: rgb(105, 69, 28);
+    color: $colorLetra;
     &:hover {
       box-shadow: 0 0 15px rgb(203, 134, 56);
+    }
+  }
+  li a {
+    color: $colorLetra;
+    font-weight: 700;
+    &:hover {
+      color: $colorLetra;
+    }
+  }
+  .dropdown-menu {
+    background-color: $colorPrincipal;
+  }
+  .dropdown-item {
+    font-weight: 700;
+    transition: 0.4s;
+    color: $colorLetra;
+    &:hover {
+      background-color: $colorSecundario;
     }
   }
 }
 .d-flex {
   align-items: center;
+}
+.boton2 {
+  @include m.btn($colorPrincipal, $verde1, $verde2, $colorLetra, $verde1);
+  margin-left: 1rem;
+  border-radius: 2rem 0;
+  &:hover {
+    border-radius: 0 2rem;
+  }
 }

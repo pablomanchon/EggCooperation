@@ -18,11 +18,19 @@
     <body>
         <main>
             <header th:include="componentes/header.html :: header"></header>
+            <div class="tarjetaRed" th:if="${error} != null">
+                <h3>Error!</h3>
+                <p th:text="${error}"></p>
+            </div>
+            <div class="tarjetaGreen" th:if="${exito} != null">
+                <h3>Exito!</h3>
+                <p th:text="${exito}"></p>
+            </div>
             <div class="container">
-                <form action="/editorial/registro" method="POST">
+                <form th:action="@{/editorial/registro}" method="POST">
                     <label for="nombre" class="form-label">Nombre de la Editorial</label>
                     <input class="form-control" name="nombre" type="text" id="nombre" placeholder="Nombre">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <button class="boton2" type="submit">Guardar</button>
                 </form>
             </div>
             <footer>
