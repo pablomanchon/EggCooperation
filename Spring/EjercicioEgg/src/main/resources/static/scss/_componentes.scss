@@ -6,3 +6,50 @@
   @include m.tarjetamodel(rgb(6, 194, 6), green);
   color: #ddd;
 }
+$colorPrincipal: rgb(138, 86, 28);
+$colorSecundario: rgb(203, 134, 56);
+.carta {
+  background-color: $colorPrincipal;
+  width: 20rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px $colorPrincipal;
+  padding: 1rem;
+}
+.cartas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+}
+header {
+  background-color: $colorPrincipal;
+  .boton {
+    background-color: rgb(101, 65, 23);
+    border: none;
+    box-shadow: 0 0 8px $colorSecundario;
+    border-radius: 50%;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    transition: 0.4s;
+    color: $colorSecundario;
+    &:hover {
+      box-shadow: 0 0 15px $colorSecundario;
+    }
+  }
+  .inputP {
+    background-color: $colorSecundario;
+    box-shadow: 0 0 8px rgb(203, 134, 56);
+    border: solid 1px $colorPrincipal;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    color: rgb(105, 69, 28);
+    &:hover {
+      box-shadow: 0 0 15px rgb(203, 134, 56);
+    }
+  }
+}
+.d-flex {
+  align-items: center;
+}

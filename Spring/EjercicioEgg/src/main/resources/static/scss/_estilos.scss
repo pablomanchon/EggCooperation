@@ -4,7 +4,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: rgb(155, 125, 87);
+  background-color: rgb(202, 154, 90);
 }
 
 /* header {
@@ -72,21 +72,4 @@ html {
       padding: 1rem 4rem;
     }
   }
-}
-@media screen and (max-width: 768px) {
-  /*   .menu-toggle {
-    display: block;
-  } */
-  /* nav {
-    position: absolute;
-    top: 4rem;
-    width: 100%;
-    left: 0;
-    height: 0;
-    border: 1px solid #eee;
-    overflow: hidden;
-    ul li {
-      display: block;
-    }
-  } */
 }
