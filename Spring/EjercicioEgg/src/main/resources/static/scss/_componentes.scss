@@ -1,0 +1,8 @@
+@use "mixins" as m;
+.tarjetaRed {
+  @include m.tarjetamodel(rgb(192, 60, 60), red);
+}
+.tarjetaGreen {
+  @include m.tarjetamodel(rgb(6, 194, 6), green);
+  color: #ddd;
+}
