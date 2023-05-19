@@ -18,35 +18,40 @@
     <body>
         <main>
             <header th:include="componentes/header.html :: header"></header>
+            <div class="tarjetaRed" th:if="${error} != null">
+                <h3>Error!</h3>
+                <p th:text="${error}"></p>
+            </div>
+            <div class="tarjetaGreen" th:if="${exito} != null">
+                <h3>Exito!</h3>
+                <p th:text="${exito}"></p>
+            </div>
             <div class="container">
-                <div class="tarjetaRed" th:if="${error} != null">
-                    <h3>Error!</h3>
-                    <p th:text="${error}"></p>
-                </div>
-                <div class="tarjetaGreen" th:if="${exito} != null">
-                    <h3>Exito!</h3>
-                    <p th:text="${exito}"></p>
-                </div>
                 <form th:action="@{/libro/registro}" method="POST">
                     <div class="cabecera">
                         <h1>Creación de libro</h1>
                         <hr>
                     </div>
                     <label for="isbn" class="form-label">ISBN</label>
-                    <input class="form-control" name="isbn" type="number" id="isbn" placeholder="ISBN">
+                    <input class="inputP" name="isbn" type="number" id="isbn" placeholder="ISBN">
                     <label for="titulo" class="form-label">Titulo</label>
-                    <input class="form-control" name="titulo" type="text" id="titulo" placeholder="Titulo">
+                    <input class="inputP" name="titulo" type="text" id="titulo" placeholder="Titulo">
                     <label for="precio" class="form-label">Precio</label>
-                    <input class="form-control" name="precio" type="number" id="precio" placeholder="Precio">
+                    <input class="inputP" name="precio" type="number" id="precio" placeholder="Precio">
                     <label for="ejemplares" class="form-label">Ejemplares</label>
-                    <input class="form-control" name="ejemplares" type="number" id="ejemplares"
-                        placeholder="Ejemplares">
+                    <input class="inputP" name="ejemplares" type="number" id="ejemplares" placeholder="Ejemplares">
                     <label for="idAutor" class="form-label">ID del Autor</label>
-                    <input class="form-control" name="idAutor" type="text" id="idAutor" placeholder="ID Autor">
+                    <input class="inputP" name="idAutor" type="text" id="idAutor" placeholder="ID Autor">
                     <label for="idEditorial" class="form-label">ID de la Editorial</label>
-                    <input class="form-control" name="idEditorial" type="text" id="idEditorial"
-                        placeholder="ID Editorial">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <input class="inputP" name="idEditorial" type="text" id="idEditorial" placeholder="ID Editorial">
+                    <select class="inputP">
+                        <option class="option">-</option>
+                        <option class="option" th:each="editorial: ${editoriales}" id="selector">
+                            <span th:text="${editorial.nombre}">
+                            </span>
+                        </option>
+                    </select>
+                    <button class="boton2" type="submit">Guardar</button>
                 </form>
             </div>
             <footer>

@@ -6,32 +6,6 @@ html {
   gap: 1rem;
   background-color: rgb(202, 154, 90);
 }
-
-/* header {
-  padding: 1rem;
-  display: flex;
-  background-color: antiquewhite;
-  gap: 1rem;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
-} */
-/* nav {
-  margin-left: auto;
-  ul {
-    margin: auto;
-    li {
-      list-style: none;
-      display: inline-block;
-      a {
-        display: inline-block;
-        position: relative;
-        padding: 0 8px;
-        text-decoration: none;
-        color: black;
-      }
-    }
-  }
-} */
 .menu-toggle {
   display: none;
   margin-left: auto;
@@ -39,10 +13,12 @@ html {
   font-size: 25px;
   cursor: pointer;
 }
+$verde1: rgb(63, 189, 63);
+$verde2: rgb(95, 236, 95);
 .container {
   border-radius: 1rem;
   box-shadow: 0 0 1rem rgb(196, 153, 97);
-  background-color: rgb(143, 106, 58);
+  background-color: rgb(128, 88, 35);
   form {
     @include m.modificarNumericos;
     padding: 1rem;
@@ -55,9 +31,12 @@ html {
     .cabecera {
       h1 {
         text-align: center;
+        color: $verde1;
+        text-shadow: 0 0 9px black;
       }
       hr {
         margin: auto;
+        color: $verde1;
         width: 60%;
         transition: 0.4s;
       }
@@ -72,4 +51,7 @@ html {
       padding: 1rem 4rem;
     }
   }
+}
+#navbarSupportedContent {
+  justify-content: space-around;
 }

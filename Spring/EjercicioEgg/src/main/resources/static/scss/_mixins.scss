@@ -14,10 +14,10 @@
   margin: auto;
   padding: 0.5rem;
   border-radius: 1rem;
-  box-shadow: 0 0 15px 5px $color;
+  box-shadow: 0 0 8px 5px $color;
   transition: 0.4s;
   &:hover {
-    box-shadow: 0 0 18px 12px $color;
+    box-shadow: 0 0 12px 5px $color;
   }
 }
 @mixin btn(
@@ -36,4 +36,9 @@
     box-shadow: 0 0 15px $shadowHover;
     color: $textoHover;
   }
+}
+@mixin pseudoInput($verde1, $verde2) {
+  box-shadow: 0 0 15px rgb(203, 134, 56);
+  border: solid 1px $verde1;
+  box-shadow: 0 0 8px $verde2;
 }

@@ -1,6 +1,6 @@
 @use "mixins" as m;
 .tarjetaRed {
-  @include m.tarjetamodel(rgb(192, 60, 60), red);
+  @include m.tarjetamodel(rgb(253 120 120), rgb(217 53 53));
 }
 .tarjetaGreen {
   @include m.tarjetamodel(rgb(6, 194, 6), green);
@@ -34,7 +34,7 @@ header {
     padding: 1px 4px;
     border: solid 1px $colorPrincipal;
     &:hover {
-      box-shadow: 0px 16px 8px $verde2;
+      box-shadow: 0px 14px 8px $verde2;
       border: solid 1px $verde2;
     }
   }
@@ -47,25 +47,15 @@ header {
     margin-left: 1rem;
   }
 
-  .inputP {
-    background-color: $colorSecundario;
-    box-shadow: 0 0 8px rgb(203, 134, 56);
-    border: solid 1px $colorPrincipal;
-    outline: none;
-    transition: 0.4s;
-    border-radius: 1rem;
-    padding: 0.5rem;
-    color: $colorLetra;
-    &:hover {
-      box-shadow: 0 0 15px rgb(203, 134, 56);
-    }
-  }
   li a {
     color: $colorLetra;
     font-weight: 700;
     &:hover {
       color: $colorLetra;
     }
+  }
+  ul:hover {
+    color: $colorLetra;
   }
   .dropdown-menu {
     background-color: $colorPrincipal;
@@ -85,8 +75,46 @@ header {
 .boton2 {
   @include m.btn($colorPrincipal, $verde1, $verde2, $colorLetra, $verde1);
   margin-left: 1rem;
+  margin-top: 1rem;
   border-radius: 2rem 0;
+  font-weight: 700;
   &:hover {
     border-radius: 0 2rem;
+    text-shadow: 0 0 1.5rem $verde1;
+  }
+  a {
+    color: $colorLetra;
+    text-decoration: none;
+    transition: 0.4s;
+    &:hover {
+      text-shadow: 0 0 1.5rem $verde1;
+      color: $verde1;
+    }
+  }
+}
+.inputP {
+  background-color: $colorSecundario;
+  box-shadow: 0 0 8px rgb(203, 134, 56);
+  border: solid 1px $colorPrincipal;
+  outline: none;
+  transition: 0.4s;
+  border-radius: 1rem;
+  padding: 0.5rem 9rem 0.5rem 1rem;
+  color: $colorLetra;
+  &:hover {
+    @include m.pseudoInput($verde1, $verde2);
+  }
+  &:focus {
+    @include m.pseudoInput($verde1, $verde2);
+  }
+}
+.option {
+  background-color: $colorSecundario;
+  transition: 0.4s;
+  border-radius: 1rem;
+  color: $colorLetra;
+  &:hover {
+    background-color: $colorPrincipal;
+    color: $colorSecundario;
   }
 }

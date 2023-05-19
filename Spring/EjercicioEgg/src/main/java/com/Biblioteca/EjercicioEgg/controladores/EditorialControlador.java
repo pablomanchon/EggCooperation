@@ -4,6 +4,7 @@ import com.Biblioteca.EjercicioEgg.entidades.Editorial;
 import com.Biblioteca.EjercicioEgg.excepciones.MiExcepcion;
 import com.Biblioteca.EjercicioEgg.servicios.ServicioEditorial;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
+@PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
 @RequestMapping("/editorial")
 public class EditorialControlador {
     @Autowired
@@ -36,7 +38,6 @@ public class EditorialControlador {
     @GetMapping("/lista")
     public String listar(ModelMap modelo) {
         List<Editorial> editoriales = editorialServ.listarEditoriales();
-        System.out.println(editoriales.get(0).getNombre());
         modelo.addAttribute("editoriales",editoriales);
         return "editorial_lista.html";
     }
