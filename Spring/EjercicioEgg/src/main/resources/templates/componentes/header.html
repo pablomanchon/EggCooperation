@@ -29,34 +29,37 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-5 mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle drop" role="button" data-bs-toggle="dropdown"
+                            <li class="nav-item dropdown" id="drop">
+                                <a class="nav-link dropdown-toggle" id="drop" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Libros
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" th:href="@{/libro/lista}">Listar</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/libro/registrar}">Agregar</a></li>
+                                    <li><a class="dropdown-item" id="drop" th:href="@{/libro/lista}">Listar</a></li>
+                                    <li><a class="dropdown-item" id="drop" th:href="@{/libro/registrar}">Agregar</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle drop" role="button" data-bs-toggle="dropdown"
+                            <li class="nav-item dropdown" id="drop">
+                                <a class="nav-link dropdown-toggle" id="drop" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Autores
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" th:href="@{/autor/lista}">Listar</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/autor/registrar}">Agregar</a></li>
+                                    <li><a class="dropdown-item" id="drop" th:href="@{/autor/lista}">Listar</a></li>
+                                    <li><a class="dropdown-item" id="drop" th:href="@{/autor/registrar}">Agregar</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle drop" role="button" data-bs-toggle="dropdown"
+                            <li class="nav-item dropdown" id="drop">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Editoriales
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" th:href="@{/editorial/lista}">Listar</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/editorial/registrar}">Agregar</a></li>
+                                    <li><a class="dropdown-item" id="drop" th:href="@{/editorial/lista}">Listar</a></li>
+                                    <li><a class="dropdown-item" id="drop" th:href="@{/editorial/registrar}">Agregar</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -65,13 +68,13 @@
                             <button class="boton" type="submit"><i class="bi bi-search"></i></button>
                         </form>
                         <ul class="navbar-nav me-5 mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            <li class="nav-item dropdown" id="drop">
+                                <a class="nav-link dropdown-toggle" id="drop" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Usuario
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" th:href="@{/logout}">Cerrar Sesion</a></li>
+                                <ul class="dropdown-menu" id="drop">
+                                    <li><a class="dropdown-item" id="drop" th:href="@{/logout}">Cerrar Sesion</a></li>
                                 </ul>
                             </li>
                         </ul>
