@@ -40,14 +40,19 @@
                     <input class="inputP" name="precio" type="number" id="precio" placeholder="Precio">
                     <label for="ejemplares" class="form-label">Ejemplares</label>
                     <input class="inputP" name="ejemplares" type="number" id="ejemplares" placeholder="Ejemplares">
-                    <label for="idAutor" class="form-label">ID del Autor</label>
-                    <input class="inputP" name="idAutor" type="text" id="idAutor" placeholder="ID Autor">
-                    <label for="idEditorial" class="form-label">ID de la Editorial</label>
-                    <input class="inputP" name="idEditorial" type="text" id="idEditorial" placeholder="ID Editorial">
-                    <select class="inputP">
+                    <label for="idEditorial" class="form-label">Editorial</label>
+                    <select name="idEditorial" id="idEditorial" class="inputP">
                         <option class="option">-</option>
                         <option class="option" th:each="editorial: ${editoriales}" id="selector">
                             <span th:text="${editorial.nombre}">
+                            </span>
+                        </option>
+                    </select>
+                    <label for="idAutor" class="form-label">ID del Autor</label>
+                    <select name="idAutor" id="idAutor" class="inputP">
+                        <option class="option">-</option>
+                        <option class="option" th:each="autor: ${autores}" id="selector">
+                            <span th:text="${autor.nombre}">
                             </span>
                         </option>
                     </select>

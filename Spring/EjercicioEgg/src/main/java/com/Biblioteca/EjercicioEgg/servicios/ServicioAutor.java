@@ -23,8 +23,11 @@ public class ServicioAutor {
         autorRepo.save(autor);
     }
     public Autor buscarPorNombre(String nombre){
-        Autor autor = autorRepo.buscarPorNombre(nombre);
-        return autor;
+        Optional<Autor> resAutor = autorRepo.buscarPorNombre(nombre);
+        if(resAutor.isPresent()){
+            return resAutor.get();
+        }
+        return null;
     }
 
     public List<Autor> listarAutores(){

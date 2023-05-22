@@ -19,17 +19,17 @@ public class ServicioLibro {
     RepositorioEditorial editorialRepo;
 
     @Transactional
-    public void crearLibro(Long isbn, String nombre, Double precio, Integer ejemplares, String idEditorial, String idAutor) throws MiExcepcion {
+    public void crearLibro(Long isbn, String nombre, Double precio, Integer ejemplares, String nombreEditorial, String nombreAutor) throws MiExcepcion {
         Autor autor = new Autor();
         Editorial editorial = new Editorial();
-        validar(isbn, nombre, precio, ejemplares, idEditorial, idAutor);
+        validar(isbn, nombre, precio, ejemplares, nombreEditorial, nombreAutor);
 
-        Optional<Autor> resAutor = autorRepo.findById(idAutor);
+        Optional<Autor> resAutor = autorRepo.buscarPorNombre(nombreAutor);
         if (resAutor.isPresent()) {
             autor = resAutor.get();
         }
 
-        Optional<Editorial> resEditorial = editorialRepo.findById(idEditorial);
+        Optional<Editorial> resEditorial = editorialRepo.buscarPorNombre(nombreEditorial);
         if (resEditorial.isPresent()) {
             editorial = resEditorial.get();
         }

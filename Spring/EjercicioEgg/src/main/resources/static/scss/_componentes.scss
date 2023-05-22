@@ -54,6 +54,14 @@ header {
       color: $colorLetra;
     }
   }
+  .drop {
+    border-radius: 1rem;
+    transition: 0.4s;
+    &:hover {
+      text-shadow: 0 0 15px $verde2;
+      color: $verde1;
+    }
+  }
   ul:hover {
     color: $colorLetra;
   }
@@ -64,8 +72,9 @@ header {
     font-weight: 700;
     transition: 0.4s;
     color: $colorLetra;
+    border-radius: 1rem;
     &:hover {
-      background-color: $colorSecundario;
+      background-color: $verde2;
     }
   }
 }

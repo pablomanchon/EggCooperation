@@ -65,6 +65,8 @@ public class LibroControlador {
         modelo.addAttribute("libros", libros);
         List<Editorial> editoriales = editorialServ.listarEditoriales();
         modelo.addAttribute("editoriales", editoriales);
+        List<Autor> autores = autorServ.listarAutores();
+        modelo.addAttribute("autores", autores);
         return "libro_lista.html";
     }
 }

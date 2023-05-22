@@ -19,7 +19,7 @@
         <main>
             <header th:include="componentes/header.html :: header"></header>
             <section class="cartas">
-                <div th:each="libro: {$libros}" class="carta">
+                <div th:each="libro: ${libros}" class="carta">
                     <h3 th:text="${libro.nombre}"></h3>
                     <h6 th:text="${libro.isbn}"></h6>
                 </div>
