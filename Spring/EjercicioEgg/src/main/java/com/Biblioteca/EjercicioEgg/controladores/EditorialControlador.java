@@ -1,6 +1,7 @@
 package com.Biblioteca.EjercicioEgg.controladores;
 
 import com.Biblioteca.EjercicioEgg.entidades.Editorial;
+import com.Biblioteca.EjercicioEgg.entidades.Usuario;
 import com.Biblioteca.EjercicioEgg.excepciones.MiExcepcion;
 import com.Biblioteca.EjercicioEgg.servicios.ServicioEditorial;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -36,7 +38,9 @@ public class EditorialControlador {
     }
 
     @GetMapping("/lista")
-    public String listar(ModelMap modelo) {
+    public String listar(ModelMap modelo, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
+        modelo.put("rol", usuario.getRol().toString());
         List<Editorial> editoriales = editorialServ.listarEditoriales();
         modelo.addAttribute("editoriales", editoriales);
         return "editorial_lista.html";

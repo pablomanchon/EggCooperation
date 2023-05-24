@@ -36,7 +36,8 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" id="drop" th:href="@{/libro/lista}">Listar</a></li>
-                                    <li><a class="dropdown-item" id="drop" th:href="@{/libro/registrar}">Agregar</a>
+                                    <li><a class="dropdown-item" id="drop" th:href="@{/libro/registrar}"
+                                            th:if="${rol} == 'ADMIN'">Agregar</a>
                                     </li>
                                 </ul>
                             </li>
@@ -47,7 +48,8 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" id="drop" th:href="@{/autor/lista}">Listar</a></li>
-                                    <li><a class="dropdown-item" id="drop" th:href="@{/autor/registrar}">Agregar</a>
+                                    <li><a class="dropdown-item" id="drop" th:href="@{/autor/registrar}"
+                                            th:if="${rol} == 'ADMIN'">Agregar</a>
                                     </li>
                                 </ul>
                             </li>
@@ -58,7 +60,8 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" id="drop" th:href="@{/editorial/lista}">Listar</a></li>
-                                    <li><a class="dropdown-item" id="drop" th:href="@{/editorial/registrar}">Agregar</a>
+                                    <li><a class="dropdown-item" id="drop" th:href="@{/editorial/registrar}"
+                                            th:if="${rol} == 'ADMIN'">Agregar</a>
                                     </li>
                                 </ul>
                             </li>

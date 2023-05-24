@@ -26,8 +26,8 @@
                     <h6 th:text="${'Editorial: ' + libro.editorial.nombre}"></h6>
                     <h6 th:text="${'Precio: $' + libro.precio}"></h6>
                     <h6 th:text="${'Ejemplares: ' + libro.ejemplares}"></h6>
-                    <hr>
-                    <div class="botones">
+                    <hr th:if="${rol} == 'ADMIN'">
+                    <div class="botones" th:if="${rol} == 'ADMIN'">
                         <a th:href="@{modificar/__${libro.nombre}__}"><button class="boton2">Modificar</button></a>
                         <a th:href="@{borrar/__${libro.nombre}__}">
                             <button class="boton3" type="button">Borrar</button>

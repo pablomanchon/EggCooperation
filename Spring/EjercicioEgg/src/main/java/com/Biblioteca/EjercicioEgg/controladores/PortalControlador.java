@@ -1,5 +1,6 @@
 package com.Biblioteca.EjercicioEgg.controladores;
 
+import com.Biblioteca.EjercicioEgg.entidades.Usuario;
 import com.Biblioteca.EjercicioEgg.excepciones.MiExcepcion;
 import com.Biblioteca.EjercicioEgg.servicios.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/")
 public class PortalControlador {
@@ -18,7 +21,9 @@ public class PortalControlador {
     ServicioUsuario servicioUsuario;
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/")
-    public String index() {
+    public String index(ModelMap modelo, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
+        modelo.put("rol", usuario.getRol().toString());
         return "index.html";
     }
     @GetMapping("/login")

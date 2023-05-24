@@ -3,6 +3,7 @@ package com.Biblioteca.EjercicioEgg.controladores;
 import com.Biblioteca.EjercicioEgg.entidades.Autor;
 import com.Biblioteca.EjercicioEgg.entidades.Editorial;
 import com.Biblioteca.EjercicioEgg.entidades.Libro;
+import com.Biblioteca.EjercicioEgg.entidades.Usuario;
 import com.Biblioteca.EjercicioEgg.excepciones.MiExcepcion;
 import com.Biblioteca.EjercicioEgg.servicios.ServicioAutor;
 import com.Biblioteca.EjercicioEgg.servicios.ServicioEditorial;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -57,7 +59,9 @@ public class LibroControlador {
     }
 
     @GetMapping("/lista")
-    public String listar(ModelMap modelo) {
+    public String listar(ModelMap modelo, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
+        modelo.put("rol", usuario.getRol().toString());
         List<Libro> libros = libroServ.listarLibros();
         modelo.addAttribute("libros", libros);
         List<Editorial> editoriales = editorialServ.listarEditoriales();

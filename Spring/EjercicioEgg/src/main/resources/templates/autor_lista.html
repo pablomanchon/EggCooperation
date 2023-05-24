@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
   <head>
     <meta charset="UTF-8">
@@ -22,8 +22,8 @@
         <div th:each="autor: ${autores}" class="carta">
           <h3 th:text="${autor.nombre}"></h3>
           <h6 th:text="${'Id: ' + autor.id}"></h6>
-          <hr>
-          <div class="botones">
+          <hr th:if="${rol} == 'ADMIN'">
+          <div class="botones" th:if="${rol} == 'ADMIN'">
             <a th:href="@{modificar/__${autor.nombre}__}"><button class="boton2">Modificar</button></a>
             <a th:href="@{borrar/__${autor.nombre}__}">
               <button class="boton3" type="button">Borrar</button>
