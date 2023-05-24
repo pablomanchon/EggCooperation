@@ -45,6 +45,10 @@ public class ServicioLibro {
         return libros;
     }
 
+    public Libro buscarPorNombre(String nombre) {
+        Optional<Libro> resLibro = libroRepo.buscarPorNombre(nombre);
+        return resLibro.isPresent() ? resLibro.get() : null;
+    }
     @Transactional
     public void modificarLibro(Long isbn, String nombre, String idAutor, String idEditorial) throws MiExcepcion {
         validar(isbn, nombre, idAutor, idEditorial);

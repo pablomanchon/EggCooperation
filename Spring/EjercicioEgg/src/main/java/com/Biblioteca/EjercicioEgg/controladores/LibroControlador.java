@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,5 +65,13 @@ public class LibroControlador {
         List<Autor> autores = autorServ.listarAutores();
         modelo.addAttribute("autores", autores);
         return "libro_lista.html";
+    }
+
+    @GetMapping("/modificar/{nombre}")
+    public String modificar(@PathVariable String nombre, ModelMap modelo) {
+        Libro libro = libroServ.buscarPorNombre(nombre);
+        System.out.println(libro.getIsbn());
+        modelo.addAttribute("libro", libro);
+        return "libro_edit.html";
     }
 }
