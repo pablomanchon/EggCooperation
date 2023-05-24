@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
 
     <head>
         <meta charset="UTF-8">
@@ -18,23 +18,23 @@
     <body>
         <main>
             <header th:include="componentes/header.html :: header"></header>
-            <section class="cartas">
-                <div th:each="libro: ${libros}" class="carta">
-                    <h3 th:text="${'Nombre: ' + libro.nombre}"></h3>
-                    <h6 th:text="${'ISBN: ' + libro.isbn}"></h6>
-                    <h6 th:text="${'Autor: ' + libro.autor.nombre}"></h6>
-                    <h6 th:text="${'Editorial: ' + libro.editorial.nombre}"></h6>
-                    <h6 th:text="${'Precio: $' + libro.precio}"></h6>
-                    <h6 th:text="${'Ejemplares: ' + libro.ejemplares}"></h6>
-                    <hr>
-                    <div class="botones">
-                        <a th:href="@{modificar/__${libro.nombre}__}"><button class="boton2">Modificar</button></a>
-                        <a th:href="@{borrar/__${libro.nombre}__}">
-                            <button class="boton3" type="button">Borrar</button>
-                        </a>
-                    </div>
-                </div>
-            </section>
+            <div class="tarjetaRed" th:if="${error} != null">
+                <h3>Error!</h3>
+                <p th:text="${error}"></p>
+            </div>
+            <div class="tarjetaGreen" th:if="${exito} != null">
+                <h3>Exito!</h3>
+                <p th:text="${exito}"></p>
+            </div>
+            <div class="container">
+                <form th:object="${editorial}" th:action="@{/editorial/modificacion}" method="POST">
+                    <input type="text" hidden name="idEditorial" th:value="${editorial.id}">
+                    <label for="nombre" class="form-label">Nombre de la Editorial</label>
+                    <input th:value="${editorial.nombre}" class="inputP" name="nombre" type="text" id="nombre"
+                        placeholder="Nombre">
+                    <button class="boton2" type="submit">Guardar</button>
+                </form>
+            </div>
             <footer>
 
             </footer>

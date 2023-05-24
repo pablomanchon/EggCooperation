@@ -27,12 +27,14 @@
                 <p th:text="${exito}"></p>
             </div>
             <div class="container">
-                <form th:object="${libro}" th:action="@{/libro/lista}" method="POST">
+                <form th:object="${libro}" action=/libro/modificacion method="POST">
                     <div class="cabecera">
                         <h1></h1>
                         <hr>
                     </div>
                     <label for="isbn" class="form-label" th:text="${'ISBN: ' + libro.isbn}"></label>
+                    <input class="inputP" name="isbn" type="number" id="isbn" th:value="${libro.isbn}" readonly
+                        placeholder="ISBN" hidden>
                     <label for="titulo" class="form-label">Titulo</label>
                     <input th:value="${libro.nombre}" class="inputP" name="titulo" type="text" id="titulo"
                         placeholder="Titulo">
@@ -50,10 +52,11 @@
                             </span>
                         </option>
                     </select>
-                    <label for="idAutor" class="form-label">ID del Autor</label>
-                    <select name="idAutor" id="idAutor" class="inputP">
+                    <label for="autor" class="form-label">ID del Autor</label>
+                    <select name="autor" id="autor" class="inputP">
                         <option class="option">-</option>
-                        <option class="option" th:each="autor: ${autores}" id="selector">
+                        <option class="option" th:each="autor: ${autores}" id="selector"
+                            th:selected="${autor == libro.autor}">
                             <span th:text="${autor.nombre}">
                             </span>
                         </option>

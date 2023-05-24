@@ -29,14 +29,27 @@ public class ServicioEditorial {
         return autores;
     }
 
+    public Editorial buscarPorNombre(String nombre) {
+        Optional<Editorial> resEditorial = editorialRepo.buscarPorNombre(nombre);
+        return resEditorial.isPresent() ? resEditorial.get() : null;
+    }
+
     @Transactional
     public void modificarEditorial(String idEditorial, String nombre) throws MiExcepcion {
         validar(idEditorial, nombre);
-        Optional<Editorial> resAutor = editorialRepo.findById(idEditorial);
-        if (resAutor.isPresent()) {
-            Editorial autor = resAutor.get();
-            autor.setNombre(nombre);
-            editorialRepo.save(autor);
+        Optional<Editorial> resEditorial = editorialRepo.findById(idEditorial);
+        if (resEditorial.isPresent()) {
+            Editorial editorial = resEditorial.get();
+            editorial.setNombre(nombre);
+            editorialRepo.save(editorial);
+        }
+    }
+
+    public void borrarEditorial(String nombre) {
+        Optional<Editorial> resEditorial = editorialRepo.buscarPorNombre(nombre);
+        if (resEditorial.isPresent()){
+            Editorial editorial = resEditorial.get();
+            editorialRepo.delete(editorial);
         }
     }
 

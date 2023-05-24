@@ -49,38 +49,64 @@ public class ServicioLibro {
         Optional<Libro> resLibro = libroRepo.buscarPorNombre(nombre);
         return resLibro.isPresent() ? resLibro.get() : null;
     }
+    public Libro buscarPorId(Long id) {
+        Optional<Libro> resLibro = libroRepo.findById(id);
+        return resLibro.isPresent() ? resLibro.get() : null;
+    }
     @Transactional
-    public void modificarLibro(Long isbn, String nombre, String idAutor, String idEditorial) throws MiExcepcion {
-        validar(isbn, nombre, idAutor, idEditorial);
+    public void modificarLibro(Long isbn,String nombre, Double precio, Integer ejemplares, String nombreAutor, String nombreEditorial) throws MiExcepcion {
+        validar(isbn, nombre, precio, ejemplares, nombreEditorial, nombreAutor);
         Editorial editorial = new Editorial();
         Autor autor = new Autor();
 
-        Optional<Editorial> resEditorial = editorialRepo.findById(idEditorial);
+        Optional<Editorial> resEditorial = editorialRepo.buscarPorNombre(nombreEditorial);
         if (resEditorial.isPresent()) {
             editorial = resEditorial.get();
+            editorialRepo.save(editorial);
         }
 
-        Optional<Autor> resAutor = autorRepo.findById(idAutor);
+        Optional<Autor> resAutor = autorRepo.buscarPorNombre(nombreAutor);
         if (resAutor.isPresent()) {
             autor = resAutor.get();
+            autorRepo.save(autor);
         }
 
         Optional<Libro> resLibro = libroRepo.findById(isbn);
         if (resLibro.isPresent()) {
             Libro libro = resLibro.get();
+            System.out.println(libro.getIsbn());
             libro.setAutor(autor);
+            System.out.println(autor.getNombre());
             libro.setEditorial(editorial);
             libro.setNombre(nombre);
+            System.out.println(libro.getNombre());
+            libro.setEjemplares(ejemplares);
+            libro.setPrecio(precio);
             libroRepo.save(libro);
         }
     }
 
-    private static void validar(Long isbn, String nombre, String idAutor, String idEditorial) throws MiExcepcion {
+    @Transactional
+    public void borrarLibro(String nombre){
+        Optional<Libro> resLibro = libroRepo.buscarPorNombre(nombre);
+        if(resLibro.isPresent()){
+            Libro libro = resLibro.get();
+            libroRepo.delete(libro);
+        }
+    }
+
+    private static void validar(Long isbn, String nombre, Double precio, Integer ejemplares, String idEditorial, String idAutor) throws MiExcepcion {
         if (isbn == null) {
             throw new MiExcepcion("Debe ingresar el ISBN");
         }
         if (nombre == null || nombre.isEmpty()) {
             throw new MiExcepcion("Debe ingresar Nombre");
+        }
+        if (precio == null) {
+            throw new MiExcepcion("Debe ingresar Precio");
+        }
+        if (ejemplares == null) {
+            throw new MiExcepcion("Debe ingresar Ejemplares");
         }
         if (idEditorial == null || idEditorial.isEmpty()) {
             throw new MiExcepcion("Debe ingresar ID de la Editorial");
@@ -89,10 +115,7 @@ public class ServicioLibro {
             throw new MiExcepcion("Debe ingresar ID del Autor");
         }
     }
-    private static void validar(Long isbn, String nombre, Double precio, Integer ejemplares, String idEditorial, String idAutor) throws MiExcepcion {
-        if (isbn == null) {
-            throw new MiExcepcion("Debe ingresar el ISBN");
-        }
+    private static void validar(String nombre, Double precio, Integer ejemplares, String idEditorial, String idAutor) throws MiExcepcion {
         if (nombre == null || nombre.isEmpty()) {
             throw new MiExcepcion("Debe ingresar Nombre");
         }

@@ -46,6 +46,15 @@ public class ServicioAutor {
             autorRepo.save(autor);
         }
     }
+    @Transactional
+    public void borrarAutor(String nombre) throws MiExcepcion {
+        validar(nombre);
+        Optional<Autor> resAutor = autorRepo.buscarPorNombre(nombre);
+        if(resAutor.isPresent()){
+            Autor autor = resAutor.get();
+            autorRepo.delete(autor);
+        }
+    }
 
     private static void validar(String idAutor, String nombre) throws MiExcepcion {
         if(nombre == null || nombre.isEmpty()){

@@ -4,6 +4,7 @@ html {
   flex-direction: column;
   gap: 1rem;
   background-color: rgb(202, 154, 90);
+  font-size: 1.2rem;
 }
 
 .menu-toggle {
@@ -59,6 +60,11 @@ html {
   justify-content: space-around;
 }
 
+.botones {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .tarjetaRed {
   background-color: rgb(217, 53, 53);
   margin: auto;
@@ -91,12 +97,17 @@ html {
   box-shadow: 0 0 15px rgb(138, 86, 28);
   padding: 1rem;
 }
+.carta hr {
+  margin-bottom: 0;
+}
 
 .cartas {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-around;
+  align-items: flex-start;
+  font-size: 1.5rem;
 }
 
 header {
@@ -182,6 +193,7 @@ header .dropdown-item:hover {
   margin-top: 1rem;
   border-radius: 2rem 0;
   font-weight: 700;
+  padding: 0.5rem 1rem;
 }
 .boton2:hover {
   box-shadow: 0 0 15px rgb(95, 236, 95);
@@ -197,6 +209,36 @@ header .dropdown-item:hover {
   transition: 0.4s;
 }
 .boton2 a:hover {
+  text-shadow: 0 0 1.5rem rgb(63, 189, 63);
+  color: rgb(63, 189, 63);
+}
+
+.boton3 {
+  background-color: rgb(138, 86, 28);
+  border: none;
+  box-shadow: 0 0 8px rgb(222, 85, 85);
+  transition: 0.4s;
+  color: rgb(73, 45, 14);
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-radius: 2rem 0;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+}
+.boton3:hover {
+  box-shadow: 0 0 15px rgb(251, 104, 104);
+  color: rgb(248, 39, 32);
+}
+.boton3:hover {
+  border-radius: 0 2rem;
+  text-shadow: 0 0 1.5rem red;
+}
+.boton3 a {
+  color: rgb(73, 45, 14);
+  text-decoration: none;
+  transition: 0.4s;
+}
+.boton3 a:hover {
   text-shadow: 0 0 1.5rem rgb(63, 189, 63);
   color: rgb(63, 189, 63);
 }

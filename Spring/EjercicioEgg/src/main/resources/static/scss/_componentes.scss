@@ -15,12 +15,17 @@ $colorLetra: rgb(73, 45, 14);
   border-radius: 1rem;
   box-shadow: 0 0 15px $colorPrincipal;
   padding: 1rem;
+  hr {
+    margin-bottom: 0;
+  }
 }
 .cartas {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-around;
+  align-items: flex-start;
+  font-size: 1.5rem;
 }
 $verde1: rgb(63, 189, 63);
 $verde2: rgb(95, 236, 95);
@@ -94,9 +99,37 @@ header {
   margin-top: 1rem;
   border-radius: 2rem 0;
   font-weight: 700;
+  padding: 0.5rem 1rem;
   &:hover {
     border-radius: 0 2rem;
     text-shadow: 0 0 1.5rem $verde1;
+  }
+  a {
+    color: $colorLetra;
+    text-decoration: none;
+    transition: 0.4s;
+    &:hover {
+      text-shadow: 0 0 1.5rem $verde1;
+      color: $verde1;
+    }
+  }
+}
+.boton3 {
+  @include m.btn(
+    $colorPrincipal,
+    rgb(222, 85, 85),
+    rgb(251, 104, 104),
+    $colorLetra,
+    rgb(248, 39, 32)
+  );
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-radius: 2rem 0;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  &:hover {
+    border-radius: 0 2rem;
+    text-shadow: 0 0 1.5rem red;
   }
   a {
     color: $colorLetra;
