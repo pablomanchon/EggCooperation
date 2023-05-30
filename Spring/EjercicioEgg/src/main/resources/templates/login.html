@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
     <head>
         <meta charset="UTF-8">
@@ -60,7 +60,8 @@
                     <hr>
                     <div>
                         <button class="boton2" type="submit">Ingresar</button>
-                        <button class="boton2" type="button" th:href="@{/registrar}">Registrar</button>
+                        <button class="boton2" type="button" th:href="@{/registrar}"
+                            sec:authorize="hasRole('USER') || hasRole('ADMIN')">Registrar</button>
                     </div>
                 </form>
             </div>

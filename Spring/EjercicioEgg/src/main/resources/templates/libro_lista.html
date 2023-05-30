@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
     <head>
         <meta charset="UTF-8">
@@ -18,6 +18,14 @@
     <body>
         <main>
             <header th:include="componentes/header.html :: header"></header>
+            <div class="tarjetaRed" th:if="${error} != null">
+                <h3>Error!</h3>
+                <p th:text="${error}"></p>
+            </div>
+            <div class="tarjetaGreen" th:if="${exito} != null">
+                <h3>Exito!</h3>
+                <p th:text="${exito}"></p>
+            </div>
             <section class="cartas">
                 <div th:each="libro: ${libros}" class="carta">
                     <h3 th:text="${'Nombre: ' + libro.nombre}"></h3>
@@ -26,8 +34,8 @@
                     <h6 th:text="${'Editorial: ' + libro.editorial.nombre}"></h6>
                     <h6 th:text="${'Precio: $' + libro.precio}"></h6>
                     <h6 th:text="${'Ejemplares: ' + libro.ejemplares}"></h6>
-                    <hr th:if="${rol} == 'ADMIN'">
-                    <div class="botones" th:if="${rol} == 'ADMIN'">
+                    <hr sec:authorize="hasRole('ADMIN')">
+                    <div class="botones" sec:authorize="hasRole('ADMIN')">
                         <a th:href="@{modificar/__${libro.nombre}__}"><button class="boton2">Modificar</button></a>
                         <a th:href="@{borrar/__${libro.nombre}__}">
                             <button class="boton3" type="button">Borrar</button>
@@ -41,5 +49,8 @@
         </main>
 
     </body>
+
+
+    <script src="/index.js" crossorigin="anonymus"></script>
 
 </html>

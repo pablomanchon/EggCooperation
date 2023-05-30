@@ -55,13 +55,13 @@ public class LibroControlador {
             Logger.getLogger(LibroControlador.class.getName()).log(Level.SEVERE, null, e);
             return "libro_form.html";
         }
-        return "redirect:lista";
+        List<Libro> libros = libroServ.listarLibros();
+        modelo.addAttribute("libros", libros);
+        return "libro_lista.html";
     }
 
     @GetMapping("/lista")
-    public String listar(ModelMap modelo, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
-        modelo.put("rol", usuario.getRol().toString());
+    public String listar(ModelMap modelo) {
         List<Libro> libros = libroServ.listarLibros();
         modelo.addAttribute("libros", libros);
         List<Editorial> editoriales = editorialServ.listarEditoriales();
@@ -85,19 +85,20 @@ public class LibroControlador {
     @PostMapping("/modificacion")
     public String modificacion(@RequestParam(required = false) Long isbn, @RequestParam(required = false) String titulo, @RequestParam(required = false) Integer ejemplares, @RequestParam(required = false) Double precio,
                                @RequestParam(required = false) String autor, @RequestParam(required = false) String idEditorial, ModelMap modelo) {
-        try{
+        try {
             System.out.println(titulo);
-            libroServ.modificarLibro(isbn,titulo, precio, ejemplares, autor, idEditorial);
-        }catch(Exception e){
+            libroServ.modificarLibro(isbn, titulo, precio, ejemplares, autor, idEditorial);
+        } catch (Exception e) {
             return "redirect:/libro/modificar/" + titulo;
         }
         return "redirect:lista";
     }
+
     @GetMapping("/borrar/{nombre}")
-    public String borrar(@PathVariable String nombre){
-        try{
+    public String borrar(@PathVariable String nombre) {
+        try {
             libroServ.borrarLibro(nombre);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("hola");
         }
         return "redirect:/libro/lista";

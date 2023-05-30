@@ -41,9 +41,7 @@ public class AutorControlador {
     }
 
     @GetMapping("/lista")
-    public String listaAutor(ModelMap modelo, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
-        modelo.put("rol", usuario.getRol().toString());
+    public String listaAutor(ModelMap modelo) {
         List<Autor> autores = autorServ.listarAutores();
         modelo.addAttribute("autores", autores);
         return "autor_lista.html";

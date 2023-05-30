@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
     <head>
         <meta charset="UTF-8">
@@ -22,8 +22,8 @@
                 <div th:each="editorial: ${editoriales}" class="carta">
                     <h3 th:text="${editorial.nombre}"></h3>
                     <h6 th:text="${editorial.id}"></h6>
-                    <hr th:if="${rol} == 'ADMIN'">
-                    <div class="botones" th:if="${rol} == 'ADMIN'">
+                    <hr sec:authorize="hasRole('ADMIN')">
+                    <div class="botones" sec:authorize="hasRole('ADMIN')">
                         <a th:href="@{modificar/__${editorial.nombre}__}"><button class="boton2">Modificar</button></a>
                         <a th:href="@{borrar/__${editorial.nombre}__}">
                             <button class="boton3" type="button">Borrar</button>
@@ -34,8 +34,10 @@
             <footer>
 
             </footer>
+
         </main>
 
     </body>
+    <script src="/index.js" crossorigin="anonymus"></script>
 
 </html>

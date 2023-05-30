@@ -38,9 +38,7 @@ public class EditorialControlador {
     }
 
     @GetMapping("/lista")
-    public String listar(ModelMap modelo, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
-        modelo.put("rol", usuario.getRol().toString());
+    public String listar(ModelMap modelo) {
         List<Editorial> editoriales = editorialServ.listarEditoriales();
         modelo.addAttribute("editoriales", editoriales);
         return "editorial_lista.html";

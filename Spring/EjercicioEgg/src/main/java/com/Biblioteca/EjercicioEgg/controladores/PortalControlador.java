@@ -21,9 +21,7 @@ public class PortalControlador {
     ServicioUsuario servicioUsuario;
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/")
-    public String index(ModelMap modelo, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
-        modelo.put("rol", usuario.getRol().toString());
+    public String index() {
         return "index.html";
     }
     @GetMapping("/login")
