@@ -30,11 +30,13 @@ public class EditorialControlador {
         try {
             editorialServ.crearEditorial(nombre);
             modelo.put("exito", "Editorial creada con éxito!");
+            List<Editorial> editoriales = editorialServ.listarEditoriales();
+            modelo.addAttribute("editoriales", editoriales);
         } catch (MiExcepcion e) {
             modelo.put("error", e.getMessage());
             return "editorial_form.html";
         }
-        return "index.html";
+        return "editorial_lista.html";
     }
 
     @GetMapping("/lista")

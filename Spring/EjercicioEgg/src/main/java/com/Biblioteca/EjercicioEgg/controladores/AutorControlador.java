@@ -33,11 +33,13 @@ public class AutorControlador {
         try {
             autorServ.crearAutor(nombre);
             modelo.put("exito", "Autor creado Correctamente!");
+            List<Autor> a = autorServ.listarAutores();
+            modelo.addAttribute("autores", a);
         } catch (MiExcepcion e) {
             modelo.put("error", e.getMessage());
             return ("autor_form.html");
         }
-        return "autor_form.html";
+        return "autor_lista.html";
     }
 
     @GetMapping("/lista")

@@ -18,6 +18,7 @@
   <body>
     <main>
       <header th:include="componentes/header.html :: header"></header>
+      <div th:include="componentes/exitoError.html"></div>
       <section class="cartas">
         <div th:each="autor: ${autores}" class="carta">
           <h3 th:text="${autor.nombre}"></h3>

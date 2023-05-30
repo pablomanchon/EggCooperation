@@ -26,14 +26,7 @@
                     <button class="boton2" type="submit">Guardar</button>
                 </form>
             </div>
-            <div class="tarjetaRed" th:if="${error} != null">
-                <h3>Error!</h3>
-                <p th:text="${error}"></p>
-            </div>
-            <div class="tarjetaGreen" th:if="${exito} != null">
-                <h3>Exito!</h3>
-                <p th:text="${exito}"></p>
-            </div>
+            <div th:include="componentes/exitoError.html"></div>
             <footer>
 
             </footer>
